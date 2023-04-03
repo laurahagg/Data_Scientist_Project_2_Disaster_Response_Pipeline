@@ -10,22 +10,22 @@ First i cleaned up the data and saved it into a database and in the second step 
 This are the folders and the files of the project:
 
 - app:
-| - template, 
-| |- master.html (main page of web app),
-| |- go.html (classification result page of web app),
-|- run.py (Flask file that runs app)
+template, 
+master.html (main page of web app),
+go.html (classification result page of web app),
+run.py (Flask file that runs app)
 
 - data
-|- disaster_categories.csv  and 
-|- disaster_messages.csv  (data to process),
-|- process_data.py
-|- ResponseData.db   (database to save and clean data),
-|- ETL_Pipeline_Preparation.ipynb (juypter notebook with the data cleaning process)
+disaster_categories.csv  and 
+disaster_messages.csv  (data to process),
+process_data.py,
+ResponseData.db   (database to save and clean data),
+ETL_Pipeline_Preparation.ipynb (juypter notebook with the data cleaning process)
 
 - models
-|- train_classifier.py
-|- classifier.pkl  (saved model)
-|- ML_Pipeline_Preparation.ipynb (jupyter notebook with the ML algorithm)
+train_classifier.py,
+classifier.pkl  (saved model),
+ML_Pipeline_Preparation.ipynb (jupyter notebook with the ML algorithm)
 
 - README.md
 

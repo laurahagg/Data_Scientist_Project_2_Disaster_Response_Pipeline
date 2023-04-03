@@ -9,23 +9,23 @@ First i cleaned up the data and saved it into a database and in the second step 
 
 This are the folders and the files of the project:
 
-- app
-| -- template
-| |--- master.html  # main page of web app
-| |--- go.html  # classification result page of web app
-|-- run.py  # Flask file that runs app
+- app:
+| - template, 
+| |- master.html (main page of web app),
+| |- go.html (classification result page of web app),
+|- run.py (Flask file that runs app)
 
 - data
-|- disaster_categories.csv  # data to process 
-|- disaster_messages.csv  # data to process
+|- disaster_categories.csv  and 
+|- disaster_messages.csv  (data to process),
 |- process_data.py
-|- InsertDatabaseName.db   # database to save clean data to
-|- ETL_Pipeline_Preparation.ipynb #juypter notebook with the data cleaning process
+|- ResponseData.db   (database to save and clean data),
+|- ETL_Pipeline_Preparation.ipynb (juypter notebook with the data cleaning process)
 
 - models
 |- train_classifier.py
-|- classifier.pkl  # saved model 
-|- ML_Pipeline_Preparation.ipynb #jupyter notebook with the ML algorithm
+|- classifier.pkl  (saved model)
+|- ML_Pipeline_Preparation.ipynb (jupyter notebook with the ML algorithm)
 
 - README.md
 

@@ -7,6 +7,18 @@ from sqlalchemy import create_engine
 
 
 def load_data(messages_filepath, categories_filepath):
+
+    """
+    Loads the Data
+
+    Arguments:
+        messages_filepath: csv file
+        categories_filepath: csv file
+    Output:
+        df: merged dataframe from the two csv files.
+
+    """
+
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
     df = messages.merge(categories, on='id')
@@ -14,6 +26,17 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
+
+
+    """
+    Cleaning the Data
+
+    Arguments:
+        df: loaded dataframe
+    Output:
+        df: cleaned dataframe
+
+    """
     categories = df['categories'].str.split(';', expand=True)
     row = categories.iloc[0]
     category_colnames = row.apply(lambda x: x[0:-2])
@@ -35,10 +58,22 @@ def clean_data(df):
 
     # drop duplicates
     df.drop_duplicates(inplace=True)
+
+    # convert all numbers to binary
+    df['related'] = df['related'].astype('str').str.replace('2', '1')
+    df['related'] = df['related'].astype('int')
     return df
 
 
 def save_data(df, database_filename):
+    """
+    Save the Data
+    Arguments:
+        df: dataframe
+        database_filename: how to name the database
+    Output:
+        None
+    """
     engine = create_engine('sqlite:///' + database_filename)
     df.to_sql('Messages', engine, index=False, if_exists='replace')
     pass

@@ -29,6 +29,20 @@ ML_Pipeline_Preparation.ipynb (jupyter notebook with the ML algorithm)
 
 - README.md
 
+### Installation:
+This project requires Python 3.11 and the following libraries:
+
+- Data Science: Numpy and Pandas
+- Machine Learning: SkicitLerarn, Pickle
+- Natural Language Process: NLTK
+- SQLlite Database: SQLalchemy
+- Web App: Flask
+- Data Visualisation: Plotly
+
+To clone the GitHub Repository:
+git@github.com:laurahagg/Data_Scientist_Project_2_Disaster_Response_Pipeline.git
+
+
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
 
@@ -41,5 +55,10 @@ ML_Pipeline_Preparation.ipynb (jupyter notebook with the ML algorithm)
     `python run.py`
 
 3. Go to http://0.0.0.0:3001/
+
+
+### Acknowledgments:
+This Project is part of the Nanodegree "Data Scientist" from the Udacity Codingschool.
+
 
 

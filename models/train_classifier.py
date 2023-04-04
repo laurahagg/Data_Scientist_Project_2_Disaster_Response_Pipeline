@@ -29,7 +29,19 @@ import os
 
 
 def load_data(database_filepath):
-    # load data from database
+
+    """
+    Loads the Data
+
+    Arguments:
+        database_filepath -> Path to SQLite destination database (DisasterResponse.db)
+    Output:
+        X -> a dataframe with the features
+        Y -> a dataframe with the  labels
+        category_names -> List of the categories name
+    """
+
+
     engine = create_engine('sqlite:///' + database_filepath)
     df = pd.read_sql_table('Messages', engine)
 
@@ -40,6 +52,17 @@ def load_data(database_filepath):
 
 
 def tokenize(text):
+
+    """
+    Tokenizes the text
+
+    Arguments:
+        text = the messages to be tokenized
+    Output:
+        cleaned tokens
+    """
+
+
     text=text.lower()
     tokens = word_tokenize(text)
     tokens = [WordNetLemmatizer().lemmatize(t) for t in tokens if t not in stopwords.words('english')]
@@ -47,6 +70,15 @@ def tokenize(text):
 
 
 def build_model():
+
+    """
+    Build the model
+
+    Arguments:
+        None
+    Output:
+        a pipeline of the model
+    """
     pipeline = Pipeline([
         ('vect', CountVectorizer(tokenizer=tokenize)),
         ('tfifd', TfidfTransformer()),
@@ -63,7 +95,17 @@ def build_model():
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
-    Y_pred=model.predict(X_test)
+    """
+    To Evaluate the Model
+
+
+    Arguments:
+        model -> the machine learning pipeline
+        X_test -> Test features
+        Y_test -> Test labels
+        category_names -> names of the labels
+    """
+    Y_pred = model.predict(X_test)
     report = classification_report(Y_test, Y_pred, target_names= category_names)
     print(report)
 
@@ -71,6 +113,16 @@ def evaluate_model(model, X_test, Y_test, category_names):
 
 
 def save_model(model, model_filepath):
+    """
+    Save the Data
+
+    Arguments:
+        model: trained model
+        Model_filepath: filepath of the model
+    Output:
+        None
+
+    """
 
     with open(model_filepath,'wb') as f:
         pickle.dump(model,f)
